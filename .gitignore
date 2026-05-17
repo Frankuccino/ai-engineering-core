@@ -1,0 +1,67 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+ENV/
+.venv
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Environment variables
+.env
+.env.local
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Jupyter Notebook
+.ipynb_checkpoints
+*.ipynb_checkpoints/
+
+# Vector databases
+chroma_db/
+*.db
+*.sqlite
+*.faiss
+
+# Data files
+*.pdf
+*.docx
+*.pptx
+*.csv
+*.xlsx
+project-1-knowledge-base/data/*
+!project-1-knowledge-base/data/.gitkeep
+project-2-code-assistant/repos/*
+!project-2-code-assistant/repos/.gitkeep
+
+# Outputs
+project-3-research-assistant/outputs/*
+!project-3-research-assistant/outputs/.gitkeep
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+
+# Distribution
+dist/
+build/
+*.egg-info/
