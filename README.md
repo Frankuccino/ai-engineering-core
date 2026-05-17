@@ -119,6 +119,77 @@ Through these implementations, I am establishing a permanent toolkit for:
 
 - ✅ **Model Context Protocol (MCP)**: Implementing MCP to seamlessly bridge frontier LLMs with local tools, filesystems, and external execution runtimes.
 
+---
+
+# 🧱 The Missing 10%–15% — The Path to Elite Architecture Mastery
+
+While executing Phases I, II, and III establishes solid mid-to-senior level competency (~85%–90%), bridging the gap toward becoming a completely independent, elite AI Systems Architect requires diving into advanced, production-hardened optimization vectors.
+
+I am using this codebase to actively explore and implement the following mechanics:
+
+---
+
+## 1. Production Telemetry & Guardrails (+5%)
+
+### The Challenge
+
+Building an agent is easy; keeping an agent from going off the rails in production is hard. Non-deterministic models require deterministic runtime guardrails.
+
+### Action Plan
+
+Integrating a strict validation layer within:
+
+- `src/search_agent.py`
+- `src/synthesizer.py`
+
+I am building self-correction loops that force the model to cross-examine its outputs against retrieved source contexts before serving responses. Additionally, I am implementing prompt injection mitigation using semantic guardrails such as Llama Guard.
+
+---
+
+## 2. Cost & Latency Optimization (+5%)
+
+### The Challenge
+
+In enterprise production environments, sequential LLM calls are a death sentence for user experience.
+
+### Action Plan
+
+Implementing a specialized Semantic Cache engine within:
+
+- `common/vector_store.py`
+
+Before invoking a frontier LLM, the system checks the vector database for highly similar historical queries (>0.95 cosine similarity). If a match is found, the response is served instantly, bypassing unnecessary LLM processing overhead.
+
+Additionally:
+
+- `common/llm_clients.py` orchestrates parallel tool-calling workflows
+- API-level prompt caching is leveraged for heavy contextual payloads
+
+---
+
+## 3. Evaluation Rigor (+5%)
+
+### The Challenge
+
+Generic framework scores are insufficient for business-specific reliability. True evaluation requires domain-specific benchmarking datasets.
+
+### Action Plan
+
+Building custom deterministic Ground Truth evaluation datasets inside:
+
+- `tests/`
+
+Rather than simply verifying successful application execution, the `pytest` pipelines process live outputs against static, known ground-truth pairs to produce measurable metrics for:
+
+- Faithfulness
+- Context Recall
+- Answer Relevance
+
+Evaluation workflows leverage:
+
+- RAGAS
+- LangSmith tracking
+
 --
 
 ### 🛠️ **Core Tech Stack**
@@ -144,3 +215,74 @@ My focus when building these systems is on conceptual clarity and high-performan
 2. **Experimentation First**: notebooks/ directories are used heavily to trace similarity thresholds and chunking logic before committing to the main application pipeline.
 
 3. **Strict Validation**: Ensuring every subsystem is tested deterministically (python -m pytest) to map the boundaries of non-deterministic LLM outputs.
+
+---
+
+# 🧱 The Missing 10%–15% — The Path to Elite Architecture Mastery
+
+While executing Phases I, II, and III establishes solid mid-to-senior level competency (~85%–90%), bridging the gap toward becoming a completely independent, elite AI Systems Architect requires diving into advanced, production-hardened optimization vectors.
+
+I am using this codebase to actively explore and implement the following mechanics:
+
+---
+
+## 1. Production Telemetry & Guardrails (+5%)
+
+### The Challenge
+
+Building an agent is easy; keeping an agent from going off the rails in production is hard. Non-deterministic models require deterministic runtime guardrails.
+
+### Action Plan
+
+Integrating a strict validation layer within:
+
+- `src/search_agent.py`
+- `src/synthesizer.py`
+
+I am building self-correction loops that force the model to cross-examine its outputs against retrieved source contexts before serving responses. Additionally, I am implementing prompt injection mitigation using semantic guardrails such as Llama Guard.
+
+---
+
+## 2. Cost & Latency Optimization (+5%)
+
+### The Challenge
+
+In enterprise production environments, sequential LLM calls are a death sentence for user experience.
+
+### Action Plan
+
+Implementing a specialized Semantic Cache engine within:
+
+- `common/vector_store.py`
+
+Before invoking a frontier LLM, the system checks the vector database for highly similar historical queries (>0.95 cosine similarity). If a match is found, the response is served instantly, bypassing unnecessary LLM processing overhead.
+
+Additionally:
+
+- `common/llm_clients.py` orchestrates parallel tool-calling workflows
+- API-level prompt caching is leveraged for heavy contextual payloads
+
+---
+
+## 3. Evaluation Rigor (+5%)
+
+### The Challenge
+
+Generic framework scores are insufficient for business-specific reliability. True evaluation requires domain-specific benchmarking datasets.
+
+### Action Plan
+
+Building custom deterministic Ground Truth evaluation datasets inside:
+
+- `tests/`
+
+Rather than simply verifying successful application execution, the `pytest` pipelines process live outputs against static, known ground-truth pairs to produce measurable metrics for:
+
+- Faithfulness
+- Context Recall
+- Answer Relevance
+
+Evaluation workflows leverage:
+
+- RAGAS
+- LangSmith tracking
