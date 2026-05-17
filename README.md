@@ -1,8 +1,11 @@
-# AI Engineering Arsenal
+# AI Engineering Core
 
 ## My Implementation Blueprint & AI-Native Architecture
 
 This repository contains my direct, hands-on implementations of modern AI engineering paradigms. It serves as my active execution ground for building intelligent microservices, mastering LLM orchestration, and developing deep technical capabilities in AI-native software architecture.
+
+> 🔗 **Blueprint & Roadmap Reference**  
+> This codebase is the direct concrete execution of the system architectures and technical roadmaps designed in my foundational repository: **[Frankuccino/ai-engineering-arsenal](https://github.com/Frankuccino/ai-engineering-arsenal)**
 
 ### 📁 Project Structure
 
